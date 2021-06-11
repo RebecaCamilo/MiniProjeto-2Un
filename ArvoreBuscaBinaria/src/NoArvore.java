@@ -27,9 +27,32 @@ public class NoArvore {
 			return no;
 	}
 	
+	/*
+	public NoArvore insere(NoArvore no, NoArvore novovalor) {
+		if(no == null) {
+			no = new NoArvore();
+//			no.valor = novovalor;
+//			no.esquerda = no.direita = null;
+		} else {
+			if(novovalor.rgm < no.valor.rgm) {
+				if (no.esquerda == null)
+					no.esquerda = new NoArvore(novovalor);
+				else
+					no.esquerda = insere(no.esquerda, novovalor);
+			} else {
+				if(no.direita == null)
+					no.direita = new NoArvore(novovalor);
+				else 
+					no.direita = insere(no.esquerda, novovalor);
+			}					
+		} 
+		return no;	
+	}
+	*/
+	
 	public NoArvore insere(NoArvore no, Valor novovalor) {
 		if(no == null) {
-//			no = new NoArvore();
+			no = new NoArvore();
 			no.valor = novovalor;
 			no.esquerda = no.direita = null;
 		} else if(novovalor.rgm < no.valor.rgm) {
@@ -39,62 +62,48 @@ public class NoArvore {
 		}	
 		return no;
 	}
-	
-	/*
-	public NoArvore insere(NoArvore no, Valor novovalor) {
-		if(no == null) {
-			no = new NoArvore(novovalor);
-//			no.valor = novovalor;
-			no.esquerda = no.direita = null;
-		} else if(novovalor.rgm < no.valor.rgm) {
-			no.esquerda = insere(no.esquerda, novovalor);
-		} else if(novovalor.rgm > no.valor.rgm) {
-			no.direita = insere(no.direita, novovalor);
-		}	
-		return no;
-	}
-*/
+
 	public void imprime(NoArvore raiz) {
 		if (raiz != null) {
 			imprime(raiz.esquerda);
-			System.out.println(raiz.valor);
+			System.out.println(raiz.valor.rgm + raiz.valor.nome);
 			imprime(raiz.direita);
 		}
 	}
 	
-	public NoArvore remove(NoArvore raiz, Valor valoraremover) {
+	public NoArvore remove(NoArvore raiz, int valoraremover) {
 		// faz a busca pelo valor a ser removido
-		if (raiz.valor == null)
+		if (raiz == null)
 			return null;
-		else if (raiz.valor.rgm > valoraremover.rgm)
+		else if (raiz.valor.rgm > valoraremover)
 			raiz.esquerda = remove(raiz.esquerda, valoraremover);
-		else if (raiz.valor.rgm < valoraremover.rgm)
+		else if (raiz.valor.rgm < valoraremover)
 			raiz.direita = remove(raiz.direita, valoraremover);
-		else {	// passar por aqui significa que achou o nó com o
-				// valora remover procurado e agora vai removê-lo
-				// segundo as 4 situações a seguir:
-			// Não ter filhos (esquerda e direita == null)
+		else {	// passar por aqui significa que achou o nÃ³ com o
+				// valora remover procurado e agora vai removÃª-lo
+				// segundo as 4 situaÃ§Ãµes a seguir:
+			// NÃ£o ter filhos (esquerda e direita == null)
 			if (raiz.esquerda == null && raiz.direita == null) {
 				raiz = null;
 			}
-			// Ter filho apenas à direita (esquerda == null)
+			// Ter filho apenas Ã  direita (esquerda == null)
 			else if (raiz. esquerda == null) {
 				raiz = raiz.direita;
 			}
-			// Ter filho apenas à esquerda (direita == null)
+			// Ter filho apenas Ã  esquerda (direita == null)
 			else if (raiz.direita == null) {
 				raiz = raiz.esquerda;
 			}
 			// Ter dois filhos (esquerda e direita != null)
 			else {
 				NoArvore sub_esquerda = raiz.esquerda;
-				// encontrar o nó com maior valor na subárvore esquerda
+				// encontrar o nÃ³ com maior valor na subÃ¡rvore esquerda
 				while (sub_esquerda.direita != null) {
 					sub_esquerda = sub_esquerda.direita;
 				}
 				// aqui a sub_esquerda.valor tem o maior valor
 				raiz.valor = sub_esquerda.valor;
-				sub_esquerda.valor = valoraremover;
+				sub_esquerda.valor.rgm = valoraremover;
 				raiz.esquerda = remove(raiz.esquerda, valoraremover);
 			}
 		}
