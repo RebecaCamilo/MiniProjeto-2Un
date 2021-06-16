@@ -61,9 +61,13 @@ public class Principal {
 					
 					break;
 				case 5:
-					System.out.print("\n----- EXIBINDO A ÁRVORE -----\n");
-					abb.imprime(abb);
-					System.out.println();
+					System.out.println("Imprimindo em In ordem");
+					abb.imprimeIn(abb);
+					System.out.println("Imprimindo em Pre ordem");
+					abb.imprimePre(abb);
+					System.out.println("Imprimindo em Pos ordem");
+					abb.imprimePos(abb);
+				break;
 					
 			}
 		} while(op != 0);
