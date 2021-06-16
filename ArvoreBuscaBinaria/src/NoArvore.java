@@ -40,12 +40,29 @@ public class NoArvore {
 		return no;
 	}
 	
-	public void imprime(NoArvore raiz) {
+	public void imprimeIn(NoArvore raiz) {
+        
 		if (raiz != null) {
-			imprime(raiz.esquerda);
-			System.out.println(raiz.valor.rgm + " - " + raiz.valor.nome);
-			imprime(raiz.direita);
-		}
+            imprimeIn(raiz.esquerda);
+            System.out.println(raiz.valor.rgm + " - " + raiz.valor.nome);
+            imprimeIn(raiz.direita);
+        }
+    }
+	public void imprimePre(NoArvore raiz) {
+	        
+			if (raiz != null) {
+	            System.out.println(raiz.valor.rgm + " - " + raiz.valor.nome);
+	            imprimePre(raiz.esquerda);
+	            imprimePre(raiz.direita);
+	        }
+	    }
+	public void imprimePos(NoArvore raiz) {
+	    
+		if (raiz != null) {
+			imprimePos(raiz.esquerda);
+	        imprimePos(raiz.direita);
+	        System.out.println(raiz.valor.rgm + " - " + raiz.valor.nome);
+	    }
 	}
 	
 	public NoArvore remove(NoArvore raiz, int valoraremover) {
