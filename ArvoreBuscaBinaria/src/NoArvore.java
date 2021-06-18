@@ -104,6 +104,14 @@ public class NoArvore {
 		}
 		return raiz;		
 	}
+	
+		public void esvaziaArvore(NoArvore raiz) {	    
+			if (raiz != null) {
+				esvaziaArvore(raiz.esquerda);
+				esvaziaArvore(raiz.direita);
+				raiz.esquerda = raiz.esquerda = null;
+	    }
+	}
 }
 
 
