@@ -4,16 +4,16 @@ public class NoArvore {
 	NoArvore	direita;
 	NoArvore	esquerda;
 	
-    public NoArvore(){
-        this.valor = null;
-        this.direita = null;
-        this.esquerda = null;
-    }
-    public NoArvore(Valor novovalor) {
-        this.valor = novovalor;
-        this.direita = null;
-        this.esquerda = null;
-    }
+	public NoArvore(){
+		this.valor = null;
+		this.direita = null;
+		this.esquerda = null;
+	}
+	public NoArvore(Valor novovalor) {
+		this.valor = novovalor;
+		this.direita = null;
+		this.esquerda = null;
+	}
     
 	public NoArvore busca(NoArvore no, int valorprocurado) {
 		if(no == null)
@@ -40,28 +40,27 @@ public class NoArvore {
 		return no;
 	}
 	
-	public void imprimeIn(NoArvore raiz) {
-        
+	public void imprimeIn(NoArvore raiz) {        
 		if (raiz != null) {
-            imprimeIn(raiz.esquerda);
-            System.out.println(raiz.valor.rgm + " - " + raiz.valor.nome);
-            imprimeIn(raiz.direita);
-        }
-    }
-	public void imprimePre(NoArvore raiz) {
-	        
-			if (raiz != null) {
-	            System.out.println(raiz.valor.rgm + " - " + raiz.valor.nome);
-	            imprimePre(raiz.esquerda);
-	            imprimePre(raiz.direita);
+			imprimeIn(raiz.esquerda);
+			System.out.println(raiz.valor.rgm + " - " + raiz.valor.nome);
+			imprimeIn(raiz.direita);
+		}
+	}
+	
+	public void imprimePre(NoArvore raiz) {	        
+		if (raiz != null) {
+			System.out.println(raiz.valor.rgm + " - " + raiz.valor.nome);
+			imprimePre(raiz.esquerda);
+			imprimePre(raiz.direita);
 	        }
-	    }
-	public void imprimePos(NoArvore raiz) {
-	    
+	}
+	
+	public void imprimePos(NoArvore raiz) {	    
 		if (raiz != null) {
 			imprimePos(raiz.esquerda);
-	        imprimePos(raiz.direita);
-	        System.out.println(raiz.valor.rgm + " - " + raiz.valor.nome);
+			imprimePos(raiz.direita);
+			System.out.println(raiz.valor.rgm + " - " + raiz.valor.nome);
 	    }
 	}
 	
@@ -105,12 +104,12 @@ public class NoArvore {
 		return raiz;		
 	}
 	
-		public void esvaziaArvore(NoArvore raiz) {	    
-			if (raiz != null) {
-				esvaziaArvore(raiz.esquerda);
-				esvaziaArvore(raiz.direita);
-				raiz.esquerda = raiz.esquerda = null;
-	    }
+	public void esvaziaArvore(NoArvore raiz) {	    
+		if (raiz != null) {
+			esvaziaArvore(raiz.esquerda);
+			esvaziaArvore(raiz.direita);
+			raiz.esquerda = raiz.esquerda = null;
+		}
 	}
 }
 
