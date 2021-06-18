@@ -5,10 +5,15 @@ public class Principal {
 	public static void main(String[] args) {
 		
 
-		Valor v1 = new Valor(100, "Roberta");
-		Valor v2 = new Valor(124, "Maria");
-		Valor v3 = new Valor(165, "Bruno");
-		Valor v4 = new Valor(123, "Rebeca");
+		Valor v1 = new Valor(500000, "NóRaiz");
+		Valor v2 = new Valor(100003, "Maria");
+		Valor v3 = new Valor(305004, "Bruno");
+		Valor v3 = new Valor(604506, "Rebeca");
+		Valor v4 = new Valor(300004, "José");
+		Valor v5 = new Valor(860005, "Juan");
+		Valor v6 = new Valor(904506, "Arimateia");
+		Valor v7 = new Valor(209007, "Danyel");
+		Valor v8 = new Valor(700088, "Jadicleide");
 
 		
 		NoArvore abb = new NoArvore(v1);
@@ -17,6 +22,11 @@ public class Principal {
 		
 		abb.insere(abb, v2);
 		abb.insere(abb, v3);
+		abb.insere(abb, v4);
+		abb.insere(abb, v5);
+		abb.insere(abb, v6);
+		abb.insere(abb, v7);
+		abb.insere(abb, v8);
 		
 		System.out.println("Seja Bem vindo ao Editor de Árvore.\n\n");
 		do {
@@ -28,7 +38,7 @@ public class Principal {
 			switch(op) {
 			
 				case 1:
-					System.out.print("\n----- INSERINDO ALUNO -----\nDigite RGM: ");
+					System.out.print("\n----- INSERINDO ALUNO -----\nDigite RGM [ATÉ 6 DÍGITOS]: ");
 					rgm = entrada.nextInt();
 					
 					System.out.print("Digite nome: ");
@@ -58,7 +68,9 @@ public class Principal {
 						System.out.println("RGM encontrado: " + abb.busca(abb, rgm).valor.rgm + " - " + abb.busca(abb, rgm).valor.nome + "\n");					
 					break;
 				case 4:
-					
+					System.out.print("\n----- ESVAZIANDO ÁRVORE -----\n");
+					abb.removeArvore(abb);
+					System.out.print("\n... A árvore está vazia.\n");
 					break;
 				case 5:
 					System.out.println("Imprimindo em In ordem");
@@ -68,6 +80,8 @@ public class Principal {
 					System.out.println("Imprimindo em Pos ordem");
 					abb.imprimePos(abb);
 				break;
+				default:
+					System.out.print("\nOpção inválida.\n");
 					
 			}
 		} while(op != 0);
